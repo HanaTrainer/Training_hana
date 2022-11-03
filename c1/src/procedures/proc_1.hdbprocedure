@@ -1,0 +1,14 @@
+PROCEDURE "proc_1"(
+    IN x int,
+    IN y varchar(10),
+    IN z varchar(10)
+ )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+
+insert into "t1"(c1,c2,c3) values(:x,:y,:z);
+
+END

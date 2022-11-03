@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" id="CV_ORG_INFO" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_ORG_INFO"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="ORG_STRUCTURE">
+    <resourceUri>ORG_STRUCTURE</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<inlineHierarchy xsi:type="Dimension:ParentChildHierarchy" id="ORG_HIR" aggregateAllNodes="true" orphanedNodesHandling="ROOT_NODES" rootNodeVisibility="ADD_ROOT_NODE_IF_DEFINED" cacheEnabled="true" cycleHandling="BREAKUP" emptyValueIsNull="false">
+  <descriptions defaultDescription="ORG_HIR"/>
+  <unassignedMemberProperties mode="FALSE"/>
+  <attributeParentPair attribute="EMP_ID" parentAttribute="MAG_ID"/>
+</inlineHierarchy>
+
+<logicalModel id="ORG_STRUCTURE">
+  <attributes>
+    <attribute id="EMP_ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMP_ID"/>
+      <keyMapping columnObjectName="ORG_STRUCTURE" columnName="EMP_ID"/>
+    </attribute>
+    <attribute id="MAG_ID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MAG_ID"/>
+      <keyMapping columnObjectName="ORG_STRUCTURE" columnName="MAG_ID"/>
+    </attribute>
+    <attribute id="JOB_TITLE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="JOB_TITLE"/>
+      <keyMapping columnObjectName="ORG_STRUCTURE" columnName="JOB_TITLE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  </shapes>
+</layout>
+</Calculation:scenario>

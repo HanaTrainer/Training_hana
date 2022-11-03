@@ -1,0 +1,19 @@
+_schema-version: "2.1"
+ID: Training_hana
+version: 0.0.1
+modules:
+- name: c1
+  type: hdb
+  path: c1
+  requires:
+  - name: hdi_c1
+    properties:
+      TARGET_CONTAINER: ~{hdi-container-name}
+resources:
+- name: hdi_c1
+  type: com.sap.xs.hdi-container
+  parameters:
+    config:
+      schema: t1
+  properties:
+    hdi-container-name: ${service-name}

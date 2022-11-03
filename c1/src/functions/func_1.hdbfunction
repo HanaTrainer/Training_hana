@@ -1,0 +1,7 @@
+FUNCTION "func_1"( )
+    RETURNS x int
+        LANGUAGE SQLSCRIPT
+    SQL SECURITY INVOKER AS
+BEGIN
+    select count(*) into x from "t1";
+END;

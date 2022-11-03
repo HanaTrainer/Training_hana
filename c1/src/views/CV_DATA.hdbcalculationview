@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_DATA" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_DATA"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="PURCHASE_ORDER">
+    <resourceUri>PURCHASE_ORDER</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+
+<logicalModel id="PURCHASE_ORDER">
+  <attributes>
+    <attribute id="PURCHASEORDERID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PURCHASEORDERID"/>
+      <keyMapping columnObjectName="PURCHASE_ORDER" columnName="PURCHASEORDERID"/>
+    </attribute>
+    <attribute id="CREATEDBY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CREATEDBY"/>
+      <keyMapping columnObjectName="PURCHASE_ORDER" columnName="CREATEDBY"/>
+    </attribute>
+    <attribute id="ECREATEDAT" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ECREATEDAT"/>
+      <keyMapping columnObjectName="PURCHASE_ORDER" columnName="ECREATEDAT"/>
+    </attribute>
+    <attribute id="CHANGEDBY" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CHANGEDBY"/>
+      <keyMapping columnObjectName="PURCHASE_ORDER" columnName="CHANGEDBY"/>
+    </attribute>
+    <attribute id="CHANGEDAT" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CHANGEDAT"/>
+      <keyMapping columnObjectName="PURCHASE_ORDER" columnName="CHANGEDAT"/>
+    </attribute>
+    <attribute id="NOTEID" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NOTEID"/>
+      <keyMapping columnObjectName="PURCHASE_ORDER" columnName="NOTEID"/>
+    </attribute>
+    <attribute id="PARTNERID" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PARTNERID"/>
+      <keyMapping columnObjectName="PURCHASE_ORDER" columnName="PARTNERID"/>
+    </attribute>
+    <attribute id="CURRENCY" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY"/>
+      <keyMapping columnObjectName="PURCHASE_ORDER" columnName="CURRENCY"/>
+    </attribute>
+    <attribute id="LIFECYCLESTATUS" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LIFECYCLESTATUS"/>
+      <keyMapping columnObjectName="PURCHASE_ORDER" columnName="LIFECYCLESTATUS"/>
+    </attribute>
+    <attribute id="APPROVALSTATUS" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="APPROVALSTATUS"/>
+      <keyMapping columnObjectName="PURCHASE_ORDER" columnName="APPROVALSTATUS"/>
+    </attribute>
+    <attribute id="CONFIRMSTATUS" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONFIRMSTATUS"/>
+      <keyMapping columnObjectName="PURCHASE_ORDER" columnName="CONFIRMSTATUS"/>
+    </attribute>
+    <attribute id="ORDERINGSTATUS" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ORDERINGSTATUS"/>
+      <keyMapping columnObjectName="PURCHASE_ORDER" columnName="ORDERINGSTATUS"/>
+    </attribute>
+    <attribute id="INVOICINGSTATUS" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="INVOICINGSTATUS"/>
+      <keyMapping columnObjectName="PURCHASE_ORDER" columnName="INVOICINGSTATUS"/>
+    </attribute>
+  
+    <attribute id="DATE_1" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATE_1"/>
+  
+      <keyMapping columnObjectName="PURCHASE_ORDER" columnName="DATE_1"/>
+  
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="GROSSAMOUNT" order="9" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="GROSSAMOUNT"/>
+      <measureMapping columnObjectName="PURCHASE_ORDER" columnName="GROSSAMOUNT"/>
+    </measure>
+    <measure id="NETAMOUNT" order="10" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="NETAMOUNT"/>
+      <measureMapping columnObjectName="PURCHASE_ORDER" columnName="NETAMOUNT"/>
+    </measure>
+    <measure id="TAXAMOUNT" order="11" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="TAXAMOUNT"/>
+      <measureMapping columnObjectName="PURCHASE_ORDER" columnName="TAXAMOUNT"/>
+    </measure>
+    <measure id="CONVERTED_GROSS_AMT" order="17" semanticType="amount" aggregationType="sum" measureType="amount" unconverted="false">
+      <descriptions defaultDescription="CONVERTED_GROSSAMOUNT"/>
+      <fixedCurrency>USD</fixedCurrency>
+      <currencyConversion errorHandling="setToNull" generateOutputUnitCurrencyAttribute="false" convert="true" accuracy="COMPATIBILITY" method="ERP" lookup="REGULAR">
+        <client>
+          <value>000</value>
+        </client>
+        <currencyConversionTables rates="TCURR" configuration="TCURV" prefactors="TCURF" notations="TCURN" precisions="TCURX"/>
+        <outputDataType datatype="DECIMAL" length="20" scale="5"/>
+        <sourceCurrency>
+          <value>EUR</value>
+        </sourceCurrency>
+        <erpDecimalShift>true</erpDecimalShift>
+        <targetCurrency>
+          <value>USD</value>
+        </targetCurrency>
+        <referenceDate>
+          <value>20010101</value>
+        </referenceDate>
+        <exchangeRateType>1002</exchangeRateType>
+      </currencyConversion>
+      <measureMapping columnObjectName="PURCHASE_ORDER" columnName="GROSSAMOUNT"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  </shapes>
+</layout>
+</Calculation:scenario>

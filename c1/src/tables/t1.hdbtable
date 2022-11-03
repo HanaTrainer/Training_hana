@@ -1,0 +1,6 @@
+COLUMN TABLE "t1" (
+c1 int,
+c2 NVARCHAR(100),
+c3 NVARCHAR(100),
+c4 NVARCHAR(100)
+);

@@ -1,0 +1,12 @@
+{
+  "role": {
+    "name": "h_r1",
+    "schema_analytic_privileges": [
+      {
+        "privileges": [
+          "a_p1"
+        ]
+      }
+    ]
+  }
+}

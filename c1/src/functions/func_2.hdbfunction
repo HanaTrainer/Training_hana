@@ -1,0 +1,8 @@
+FUNCTION "func_2"( )
+    RETURNS table (a int,b varchar(100))
+    LANGUAGE SQLSCRIPT
+    SQL SECURITY INVOKER AS
+BEGIN
+x= select C1 as a,C2 as b from "t1";
+RETURN select * from :x;
+END;
